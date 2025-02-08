@@ -3,6 +3,7 @@ import 'package:Calculator/wigdets/textfield.dart';
 import 'package:flutter/material.dart';
 
 import '../wigdets/buttons.dart';
+import '../wigdets/equalTobutton.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({
@@ -29,33 +30,40 @@ class Homepage extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
             decoration: decoration,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(4, (index) => buttonlist[index]),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(4, (index) => buttonlist[index]),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(4, (index) => buttonlist[index+4]),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(4, (index) => buttonlist[index+8]),
+                ),
+                Row(children: [
+                  Expanded(
+                    child: Column(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(3, (index)=> buttonlist[index+12]),
+                      ),
+                      const SizedBox(height: 20,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(3, (index)=> buttonlist[index+15]),
+                      ),
+                    ],
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(4, (index) => buttonlist[index+4]),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(4, (index) => buttonlist[index+8]),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(4, (index) => buttonlist[index+12]),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(4, (index) => buttonlist[index+16]),
-                  ),
-              
-                ],
-              ),
+                  const SizedBox(width: 20,),
+                  EqualToButton(),
+                ],)
+              ],
             ),
           ),
         ],
@@ -63,6 +71,7 @@ class Homepage extends StatelessWidget {
     );
   }
 }
+
 
 List<Widget> buttonlist = [
   Button(

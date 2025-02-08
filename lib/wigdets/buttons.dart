@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:Calculator/colors.dart';
 
 class Button extends StatelessWidget {
-  String text;
-  Color color;
+  final String text;
+  final Color color;
   Button({
     super.key,
     required this.text,
@@ -25,3 +25,4 @@ class Button extends StatelessWidget {
     );
   }
 }
+
