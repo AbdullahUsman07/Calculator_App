@@ -1,53 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:Calculator/colors.dart';
 
-void main() => runApp(
-  MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomePage()));
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+import 'screens/homepage.dart';
 
-  @override
-  State<HomePage> createState() => _HomePageState();
+void main() {
+  runApp(Calculator());
 }
 
-class _HomePageState extends State<HomePage> {
-  PageController? _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(
-      initialPage: 0,
-    );
-  }
+class Calculator extends StatelessWidget {
+  const Calculator({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage("assets/images/gym2.jpg"),
-              fit: BoxFit.cover,
-            )
-            ),
-            child: Container(  
-              decoration: BoxDecoration( 
-                gradient: LinearGradient(
-                  colors:[
-                    Colors.black.withOpacity(0.3),
-                    Colors.black.withOpacity(0.3),
-                  ] )
-              ),
-            ),
-          )
-        ],
-      ),
+    final decoration = BoxDecoration(
+      color: AppColors.secondary2Color,
+      borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+    );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      home: Homepage(decoration: decoration),
     );
   }
 }
+
