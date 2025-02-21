@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:Calculator/colors.dart';
 import 'package:provider/provider.dart';
 
+
 class Button extends StatelessWidget {
   final String text;
   final Color color;
+
   Button({
     super.key,
     required this.text,
@@ -14,19 +16,38 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-        Provider.of<CalculatorProvider>(context,listen: false).setvalue(text);
-      },
-      child: Material(
-        elevation: 3,
-        color: AppColors.secondary2Color,
-        borderRadius: BorderRadius.circular(50),
-        child: CircleAvatar(
-          radius: 36,
-          backgroundColor: AppColors.secondary2Color,
-          child: Text(text,
-              style: TextStyle(color:color,fontSize: 30, fontWeight: FontWeight.bold)),
+    return Material(
+      shape: const CircleBorder(), 
+      elevation: 5, 
+      shadowColor: Colors.black54, 
+      color: Colors.transparent, 
+      child: InkWell(
+        borderRadius: BorderRadius.circular(50), 
+        splashColor: Colors.white, 
+        highlightColor: Colors.white, 
+        onTap: () {
+          Provider.of<CalculatorProvider>(context, listen: false).setvalue(text);
+        },
+        child: Container(
+          width: 72,
+          height: 72,
+          decoration:const BoxDecoration(
+            shape: BoxShape.circle,
+            color: AppColors.secondary2Color, 
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 8,
+                spreadRadius: 2, 
+                offset:  Offset(2, 4), 
+              ),
+            ],
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: TextStyle(color: color, fontSize: 30, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );

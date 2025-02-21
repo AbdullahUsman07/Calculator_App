@@ -113,15 +113,7 @@ List<Widget> buttonlist = [
   Button(text: '1'),
   Button(text: '2'),
   Button(text: '3'),
-  Button(
-    text: '=',
-    color: AppColors.secondaryColor,
-  ),
   Button(text: '%'),
   Button(text: '0'),
   Button(text: '.'),
-  Button(
-    text: '=',
-    color: AppColors.secondaryColor,
-  ),
 ];
